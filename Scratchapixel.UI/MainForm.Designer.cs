@@ -39,6 +39,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "Scratchapixel 4.0";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 
