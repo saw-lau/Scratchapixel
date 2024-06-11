@@ -1,4 +1,4 @@
-namespace Scratchapixel
+namespace Scratchapixel.UI
 {
     internal static class Program
     {

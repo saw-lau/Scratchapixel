@@ -1,4 +1,4 @@
-﻿namespace Scratchapixel
+﻿namespace Scratchapixel.UI
 {
     partial class MainForm
     {
