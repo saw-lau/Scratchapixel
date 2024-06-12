@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel;
+using System.Reflection;
 
 namespace Scratchapixel.UI
 {
@@ -8,7 +9,7 @@ namespace Scratchapixel.UI
 
         public LessonRepository()
         {
-            Lessons = new SortedList<int, ILesson>();
+            Lessons = [];
         }
 
         public void LoadLessons()
@@ -26,7 +27,10 @@ namespace Scratchapixel.UI
                         {
                             if (typeInfo.ImplementedInterfaces.Contains(typeof(ILesson)))
                             {
-                                Lessons.Add(TBD!)
+                                if (typeInfo.FullName != null && ass.CreateInstance(typeInfo.FullName) is ILesson lesson)
+                                {
+                                    Lessons.Add(lesson.Number, lesson);
+                                }
                             }
                         }
                     }

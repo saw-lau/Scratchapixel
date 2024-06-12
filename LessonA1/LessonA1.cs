@@ -4,12 +4,26 @@ namespace LessonA1
 {
     public class LessonA1 : ILesson
     {
-        public int Number => throw new NotImplementedException();
+        public int Number => 1;
+        public string Name => "Your Starting Point!";
+        public string Description => "A Very Gentle Introduction to Computer Graphics Programming";
+        public string Notes => "TBD.";
+        public Control? Control { get; set; }
 
-        public string Name => throw new NotImplementedException();
+        public void Render()
+        {
+            if (Control != null)
+            {
+            }
+        }
 
-        public string Description => throw new NotImplementedException();
+        public Bitmap? Bitmap => _bitmap;
 
-        public string Notes => throw new NotImplementedException();
+        public void CleanUp()
+        {
+            _bitmap = null;
+        }
+
+        private Bitmap? _bitmap;
     }
 }
