@@ -25,7 +25,8 @@ namespace Scratchapixel.UI
                         // Is it a lesson?
                         foreach (TypeInfo typeInfo in ass.DefinedTypes)
                         {
-                            if (typeInfo.ImplementedInterfaces.Contains(typeof(ILesson)))
+                            //if (typeInfo.ImplementedInterfaces.Contains(typeof(ILesson)))
+                            if (typeInfo.IsSubclassOf(typeof(Lesson)))
                             {
                                 if (typeInfo.FullName != null && ass.CreateInstance(typeInfo.FullName) is ILesson lesson)
                                 {
