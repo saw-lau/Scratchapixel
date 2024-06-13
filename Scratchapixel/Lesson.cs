@@ -30,22 +30,25 @@
         /// <summary>
         /// Each Lesson renders to a Bitmap, which is retrieved by the main form via this property.
         /// </summary>
-        public Bitmap? Bitmap { get; }
+        public Bitmap? Bitmap { get; protected set; }
 
+        /// <summary>
+        /// The control that the bitmap will be drawn on.
+        /// </summary>
         public Control? Control { get; set; }
-        public void Render() { }
+
+        /// <summary>
+        /// The render method that needs to be implemented by the lesson.
+        /// </summary>
+        public abstract void Render();
         
         /// <summary>
         /// Clean up any resources.
         /// </summary>
         public void CleanUp()
         {
-            _bitmap = null;
+            Bitmap?.Dispose();
+            Bitmap = null;
         }
-
-        /// <summary>
-        /// Underlying storage for the bitmap.
-        /// </summary>
-        protected Bitmap? _bitmap;
     }
 }
