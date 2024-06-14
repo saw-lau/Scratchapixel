@@ -1,11 +1,10 @@
-﻿using System.ComponentModel;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Scratchapixel.UI
 {
     internal class LessonRepository
     {
-        public SortedList<int, ILesson> Lessons { get; private set; }
+        public SortedList<int, Lesson> Lessons { get; }
 
         public LessonRepository()
         {
@@ -25,10 +24,9 @@ namespace Scratchapixel.UI
                         // Is it a lesson?
                         foreach (TypeInfo typeInfo in ass.DefinedTypes)
                         {
-                            //if (typeInfo.ImplementedInterfaces.Contains(typeof(ILesson)))
                             if (typeInfo.IsSubclassOf(typeof(Lesson)))
                             {
-                                if (typeInfo.FullName != null && ass.CreateInstance(typeInfo.FullName) is ILesson lesson)
+                                if (typeInfo.FullName != null && ass.CreateInstance(typeInfo.FullName) is Lesson lesson)
                                 {
                                     Lessons.Add(lesson.Number, lesson);
                                 }

@@ -35,13 +35,28 @@
         /// <summary>
         /// The control that the bitmap will be drawn on.
         /// </summary>
+        /// <remarks>
+        /// Primarily passed in so that the lesson can invalidate this to cause a repaint for long-running operations or animation.
+        /// </remarks>
         public Control? Control { get; set; }
 
         /// <summary>
-        /// The render method that needs to be implemented by the lesson.
+        /// Called when rendering needs to begin.
         /// </summary>
-        public abstract void Render();
-        
+        public void StartRender()
+        {
+            if (Control != null)
+            {
+                if ((Bitmap == null || Bitmap.Width != Control.Width || Bitmap.Height != Control.Height) && Control.Width != 0)
+                {
+                    Bitmap?.Dispose();
+                    Bitmap = new Bitmap(Control.Width, Control.Height);
+                }
+            }
+
+            Render();
+        }
+
         /// <summary>
         /// Clean up any resources.
         /// </summary>
@@ -50,5 +65,13 @@
             Bitmap?.Dispose();
             Bitmap = null;
         }
+
+        /// <summary>
+        /// The render method that the lesson needs to provide to render on to the bitmap.
+        /// </summary>
+        /// <remarks>
+        /// When rendering is complete, the control should be invalidated.
+        /// </remarks>
+        protected abstract void Render();
     }
 }

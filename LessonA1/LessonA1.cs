@@ -9,15 +9,13 @@ namespace LessonA1
         public override string Description => "A Very Gentle Introduction to Computer Graphics Programming";
         public override string Notes => "TBD.";
 
-        public override void Render()
+        protected override void Render()
         {
-            if (Control != null)
+            if (Bitmap != null && Control != null)
             {
-                if (Bitmap == null || Bitmap.Width != Control.Width || Bitmap.Height != Control.Height)
-                {
-                    Bitmap?.Dispose();
-                    Bitmap = new Bitmap(Control.Width, Control.Height);
-                }
+                Graphics g = Graphics.FromImage(Bitmap);
+                g.FillRectangle(Brushes.Azure, Control.ClientRectangle);
+                Control.Invalidate();
             }
         }
     }
