@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Scratchapixel.UI
 {
     public partial class MainForm : Form
@@ -35,6 +37,7 @@ namespace Scratchapixel.UI
                 _nameLabel.Text = lesson.Name;
                 _descriptionTextBox.Text = lesson.Description;
                 _notesTextBox.Text = lesson.Notes;
+                _uriLinkLabel.Text = lesson.Uri.ToString();
                 _currentLesson.Control = _outputPanel;
                 _currentLesson.StartRender();
             }
@@ -55,6 +58,15 @@ namespace Scratchapixel.UI
             {
                 _currentLesson.StartRender();
             }
+        }
+
+        private void UriLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = _uriLinkLabel.Text,
+                UseShellExecute = true
+            });
         }
     }
 }

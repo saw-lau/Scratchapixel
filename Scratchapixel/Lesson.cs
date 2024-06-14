@@ -25,6 +25,11 @@
         /// Any notes on the lesson learnt through implementing it.
         /// </summary>
         public abstract string Notes { get; }
+
+        /// <summary>
+        /// Link to the lesson.
+        /// </summary>
+        public abstract Uri Uri { get; }
         #endregion
 
         /// <summary>

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             _selectionPanel = new Panel();
+            _uriLinkLabel = new LinkLabel();
             _notesTextBox = new TextBox();
             _descriptionTextBox = new TextBox();
             _lessonsPanel = new FlowLayoutPanel();
@@ -42,6 +43,7 @@
             // 
             _selectionPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             _selectionPanel.BorderStyle = BorderStyle.FixedSingle;
+            _selectionPanel.Controls.Add(_uriLinkLabel);
             _selectionPanel.Controls.Add(_notesTextBox);
             _selectionPanel.Controls.Add(_descriptionTextBox);
             _selectionPanel.Controls.Add(_lessonsPanel);
@@ -51,6 +53,16 @@
             _selectionPanel.Size = new Size(200, 426);
             _selectionPanel.TabIndex = 0;
             // 
+            // _uriLinkLabel
+            // 
+            _uriLinkLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            _uriLinkLabel.AutoEllipsis = true;
+            _uriLinkLabel.Location = new Point(3, 401);
+            _uriLinkLabel.Name = "_uriLinkLabel";
+            _uriLinkLabel.Size = new Size(192, 23);
+            _uriLinkLabel.TabIndex = 3;
+            _uriLinkLabel.LinkClicked += UriLinkLabel_LinkClicked;
+            // 
             // _notesTextBox
             // 
             _notesTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -59,7 +71,7 @@
             _notesTextBox.Multiline = true;
             _notesTextBox.Name = "_notesTextBox";
             _notesTextBox.ReadOnly = true;
-            _notesTextBox.Size = new Size(192, 150);
+            _notesTextBox.Size = new Size(192, 127);
             _notesTextBox.TabIndex = 2;
             _notesTextBox.Text = "Notes.";
             // 
@@ -129,5 +141,6 @@
         private Label _nameLabel;
         private TextBox _descriptionTextBox;
         private TextBox _notesTextBox;
+        private LinkLabel _uriLinkLabel;
     }
 }

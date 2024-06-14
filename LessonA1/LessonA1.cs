@@ -8,6 +8,7 @@ namespace LessonA1
         public override string Name => "Your Starting Point!";
         public override string Description => "A Very Gentle Introduction to Computer Graphics Programming";
         public override string Notes => "TBD.";
+        public override Uri Uri => new("https://www.scratchapixel.com/lessons/3d-basic-rendering/get-started/gentle-introduction-to-computer-graphics-programming.html");
 
         protected override void Render()
         {
@@ -18,5 +19,16 @@ namespace LessonA1
                 Control.Invalidate();
             }
         }
+
+        private readonly double[][] _corners = [
+            [ 1, -1, -5],
+            [ 1, -1, -3],
+            [ 1,  1, -5],
+            [ 1,  1, -3],
+            [-1, -1, -5],
+            [-1, -1, -3],
+            [-1,  1, -5],
+            [-1,  1, -3],
+            ];
     }
 }
