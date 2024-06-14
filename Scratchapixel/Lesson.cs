@@ -35,9 +35,6 @@
         /// <summary>
         /// The control that the bitmap will be drawn on.
         /// </summary>
-        /// <remarks>
-        /// Primarily passed in so that the lesson can invalidate this to cause a repaint for long-running operations or animation.
-        /// </remarks>
         public Control? Control { get; set; }
 
         /// <summary>
@@ -45,16 +42,17 @@
         /// </summary>
         public void StartRender()
         {
-            if (Control != null)
+            // The control's width will be zero if the application is minimised.
+            if (Control != null && Control.Width != 0)
             {
-                if ((Bitmap == null || Bitmap.Width != Control.Width || Bitmap.Height != Control.Height) && Control.Width != 0)
+                if (Bitmap == null || Bitmap.Width != Control.Width || Bitmap.Height != Control.Height)
                 {
                     Bitmap?.Dispose();
                     Bitmap = new Bitmap(Control.Width, Control.Height);
                 }
-            }
 
-            Render();
+                Render();
+            }
         }
 
         /// <summary>

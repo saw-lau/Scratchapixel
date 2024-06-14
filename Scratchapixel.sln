@@ -5,6 +5,7 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{03EF4FBE-9F9A-48F7-BFEF-6CDFB23D0925}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
@@ -13,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LessonA1", "LessonA1\Lesson
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scratchapixel.UI", "Scratchapixel.UI\Scratchapixel.UI.csproj", "{CFAB0F9C-F282-4B3A-8E37-3F7690C9128E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratchapixel", "Scratchapixel\Scratchapixel.csproj", "{6B2AA048-FCE5-41BD-B5CF-3521C9461EF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scratchapixel", "Scratchapixel\Scratchapixel.csproj", "{6B2AA048-FCE5-41BD-B5CF-3521C9461EF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
